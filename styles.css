@@ -179,16 +179,18 @@ label #cancel{
   }
   #main{
     background-image: url(phone.png);
-    margin:5px;
-     height:100vh;
+    
+     height:120vh;
      width:100vw; 
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+    
+  }
+  #logo img{
+    left: 0;
+    top: 0;
+    bottom: 0;
   }
   .menu-toggle .burger{
     margin-left: 40px;
