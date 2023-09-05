@@ -146,7 +146,11 @@ label #cancel{
   nav ul li a{
       font-size: 17px;
   }
-  
+  #text p{
+   
+    text-align: center;
+    
+}
 }
 @media (max-width: 860px) {
   label #btn{
@@ -197,6 +201,7 @@ label #cancel{
   }
   #text p{
       font-size: 17px;
+      text-align: center;
       
   }
   .content1 #countdown{
