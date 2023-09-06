@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 </head>
+
 <body>
    
     <div id="main">
@@ -22,7 +24,7 @@
                         <i class="fas fa-times" id="cancel"></i> 
                     </label>
                 <ul class="menu">
-                    <li><a href="./index.html" class="active">Home</a></li>
+                    <li><a href="./index.html" class="">Home</a></li>
                     <li><a href="">Products</a></li>
                     <li><a href="">About</a></li>
                     <li><a href="">Contact</a></li>
@@ -33,18 +35,42 @@
         </div>
         <div id="logo"><img src="logo.png" alt="Logo"></div>
         <div id="coming">Coming Soon!</div>
-        <div id="text"><p>We're working on something awesome and can't wait to share it with you!</p></div>
+        <div id="text"> <p>Be the first one to know when  our store get live...</p></div>
+        <div class="container">
+            <div class="inpt">
+                <input type="email" placeholder=" Type your email here..." class="inp">
+            </div>
+            <div class="container2">
+                <button id="btn1">
+                    <p id="btnText">Notify me</p>
+                    <div class="right">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                            <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
         <footer>
             <div class="copyright">
                 &copy; 2023 Skelter-All Rights Reserved.
             </div>
             <div class="social-media">
-                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.facebook.com/profile.php?id=61550906186771&mibextid=ZbWKwL"><img src="facebook-icon.png" alt="Facebook"></a>
                 <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
                 <a href="https://www.instagram.com/skelter.store/"><img src="instagram-icon.png" alt="Instagram"></a>
             </div>
         </footer>
+        </div>
+        
     </div>
-   
+    <script type="text/javascript">
+        const btn1 = document.querySelector("#btn1");
+        const btnText = document.querySelector("#btnText");
+
+        btn1.onclick = () => {
+            btnText.innerHTML = "Thanks";
+            btn1.classList.add("active");
+        };
+    </script>  
 </body>
 </html>

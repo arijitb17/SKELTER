@@ -1,4 +1,61 @@
+<?php
+$insert = false;
+session_start();
 
+if(isset($_POST['email'])){
+
+  if(empty($_SESSION['form_submitted'])){
+        $_SESSION['form_submitted'] = true;
+
+    
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+
+    
+    $con = mysqli_connect($server, $username, $password);
+
+    
+    if(!$con){
+      die("connection to this database failed due to" . mysqli_connect_error());
+    }
+
+    $email = $_POST['email'];
+    
+    $sql = "INSERT INTO `subscriber`.`info` (`email`, `dt`) VALUES ('$email', current_timestamp());";
+
+    
+    if($con->query($sql) == true){
+        echo "Sucessfully inserted";
+        
+    }
+    else{
+        echo "Error: $sql <br> $con->error";
+    }
+
+    $con->close();
+    }
+}
+
+unset($_SESSION['form_submitted']);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKELTER</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<style>
+  
 *{
     margin: 0;
     padding: 0;
@@ -307,3 +364,66 @@ label #cancel{
   .igl {
     margin-top: 3px;
   }
+</style>
+<body>
+   
+    <div id="main">
+        <div id="navbar">
+            <nav>
+                <div class="menu-toggle">
+                    <input type="checkbox" id="toggle">
+                    <label for="toggle" class="burger">
+                        <i class="fas fa-bars" id="btn"></i>
+                        <i class="fas fa-times" id="cancel"></i> 
+                    </label>
+                <ul class="menu">
+                    <li><a href="./index.html" class="">Home</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Account</a></li> 
+                    <li><a href=""><i class="fa-solid fa-bag-shopping" width="30px"></i></a></li>  
+                </ul>
+            </nav>
+        </div>
+        <div id="logo"><img src="logo.png" alt="Logo"></div>
+        <div id="coming">Coming Soon!</div>
+        <div id="text"> <p>Be the first one to know when  our store get live...</p></div>
+        <div class="container">
+            <div class="inpt">
+                <input type="email" placeholder=" Type your email here..." class="inp">
+            </div>
+            <div class="container2">
+                <button id="btn1">
+                    <p id="btnText">Notify me</p>
+                    <div class="right">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                            <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        <footer>
+            <div class="copyright">
+                &copy; 2023 Skelter-All Rights Reserved.
+            </div>
+            <div class="social-media">
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/skelter.store/"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </footer>
+        </div>
+        
+    </div>
+    <script type="text/javascript">
+        const btn1 = document.querySelector("#btn1");
+        const btnText = document.querySelector("#btnText");
+
+        btn1.onclick = () => {
+            btnText.innerHTML = "Thanks";
+            btn1.classList.add("active");
+        };
+    </script>  
+</body>
+</html>
