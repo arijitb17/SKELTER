@@ -1,45 +1,4 @@
-<?php
-$insert = false;
-session_start();
 
-if(isset($_POST['email'])){
-
-  if(empty($_SESSION['form_submitted'])){
-        $_SESSION['form_submitted'] = true;
-
-    
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-
-    
-    $con = mysqli_connect($server, $username, $password);
-
-    
-    if(!$con){
-      die("connection to this database failed due to" . mysqli_connect_error());
-    }
-
-    $email = $_POST['email'];
-    
-    $sql = "INSERT INTO `subscriber`.`info` (`email`, `dt`) VALUES ('$email', current_timestamp());";
-
-    
-    if($con->query($sql) == true){
-        echo "Sucessfully inserted";
-        
-    }
-    else{
-        echo "Error: $sql <br> $con->error";
-    }
-
-    $con->close();
-    }
-}
-
-unset($_SESSION['form_submitted']);
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -366,7 +325,48 @@ label #cancel{
   }
 </style>
 <body>
-   
+<?php
+$insert = false;
+session_start();
+
+if(isset($_POST['email'])){
+
+  if(empty($_SESSION['form_submitted'])){
+        $_SESSION['form_submitted'] = true;
+
+    
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+
+    
+    $con = mysqli_connect($server, $username, $password);
+
+    
+    if(!$con){
+      die("connection to this database failed due to" . mysqli_connect_error());
+    }
+
+    $email = $_POST['email'];
+    
+    $sql = "INSERT INTO `subscriber`.`info` (`email`, `dt`) VALUES ('$email', current_timestamp());";
+
+    
+    if($con->query($sql) == true){
+        echo "Sucessfully inserted";
+        
+    }
+    else{
+        echo "Error: $sql <br> $con->error";
+    }
+
+    $con->close();
+    }
+}
+
+unset($_SESSION['form_submitted']);
+
+?>
     <div id="main">
         <div id="navbar">
             <nav>

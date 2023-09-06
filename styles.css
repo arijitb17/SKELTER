@@ -188,17 +188,28 @@ label #cancel{
     
   }
   #logo img{
-    left: 0;
-    top: 0;
-    bottom: 0;
+   margin-top: -120px;
+
   }
   .menu-toggle .burger{
     margin-left: 40px;
   }
+  #coming{
+    margin-top: -90px;
+  }
   #text p{
       font-size: 17px;
       text-align: center;
+      margin-top: -60px;
       
+  }
+  .container{
+    margin-bottom: 100px;
+    margin-top: -90px;
+  }
+ 
+  footer{
+    margin-top: -100px;
   }
   .content1 #countdown{
       font-size: 20px;
